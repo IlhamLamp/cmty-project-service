@@ -13,6 +13,7 @@ const {
   DB_PASSWORD,
   DB_NAME,
   DB_HOST,
+  TOKEN_API,
   NODE_ENV,
 } = process.env;
 const config = {
@@ -23,6 +24,7 @@ const config = {
   DB_PASSWORD: z.string().parse(DB_PASSWORD),
   DB_NAME: z.string().parse(DB_NAME),
   DB_HOST: z.string().parse(DB_HOST),
+  TOKEN_API: z.string().parse(TOKEN_API),
   NODE_ENV: nodeEnvSchema.parse(NODE_ENV),
 };
 
