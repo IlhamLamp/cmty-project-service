@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/core/index.ts",
-    "dev": "nodemon src/core/index.ts"
+    "dev": "tsup --watch",
+    "build": "tsup && npm start",
+    "start": "node ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
-    "@types/morgan": "^1.9.9"
+    "@types/morgan": "^1.9.9",
+    "tsup": "^8.3.5"
   }
 }

@@ -6,7 +6,9 @@ import morgan from "morgan";
 import { initRequestId, tracer } from "../middleware/requestId";
 import { middlewareResponseInit } from "../middleware/response";
 import router from "../routes";
+import { createLogger } from "../middleware";
 
+const logger = createLogger({ name: "APP", env: config.NODE_ENV });
 const app = express();
 
 app.use(
@@ -53,6 +55,8 @@ app.use(router);
 
 export async function runApp(port: number) {
   app.listen(port, () => {
-    logger;
+    logger.info(`Server is running on port ${port}`);
   });
 }
+
+export { app };

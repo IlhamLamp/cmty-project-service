@@ -2,6 +2,7 @@ import { type NextFunction, type Request, type Response } from "express";
 import { tracer } from "../middleware/requestId";
 import config from "../config";
 import { createLogger } from "../middleware";
+import { BadRequest, ResponseError } from ".";
 
 const logger = createLogger({
   name: "ERROR",
@@ -36,7 +37,6 @@ export async function errorHandler(
     message = err.message;
     error = err.cause;
     stack = err.stack;
-    status = 500;
   } else {
     message = err;
   }

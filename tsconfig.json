@@ -6,13 +6,14 @@
     "esModuleInterop": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "sourceRoot": "",
+    "baseUrl": "./src/core",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "incremental": true
+    "incremental": true,
+    "typeRoots": ["./node_modules/@types", "src/types"]
   },
-  "include": ["src/**/*.ts", "types/**/*.d.ts"],
+  "include": ["src/**/*.ts", "src/types/**/*.d.ts"],
   "exclude": ["node_modules"]
 }
