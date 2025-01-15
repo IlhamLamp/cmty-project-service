@@ -27,16 +27,19 @@ export class ProjectCollection {
 
   async create(payload: Project): Promise<Project> {
     const projectUuid = uuid();
-    const query = `INSERT INTO ${this.table} (uuid, logo, owner, title, company, start_date, end_date, types, duration, participation, address_city, address_state, address_zip_code, address_street, approval, description, salary, priority, status) 
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const query = `INSERT INTO ${this.table} (
+        uuid, logo, owner, title, company, start_date, end_date, types, duration,
+        participation, address_city, address_state, address_zip_code, address_street,
+        approval, description, salary, priority, status
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     const data = [
       projectUuid,
       payload.logo,
       payload.owner,
       payload.title,
       payload.company,
-      payload.start_date,
-      payload.end_date,
+      new Date(payload.start_date).toISOString().split("T")[0],
+      new Date(payload.end_date).toISOString().split("T")[0],
       payload.types,
       payload.duration,
       payload.participation,

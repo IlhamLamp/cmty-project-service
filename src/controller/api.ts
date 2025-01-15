@@ -2,6 +2,7 @@ import { type Request, type Response, type NextFunction } from "express";
 import { ProjectService } from "../service";
 import { badRequestValidator } from "../middleware";
 import { z } from "zod";
+import { projectSchema } from "../models";
 
 class ApiHandler {
   private readonly projectService: ProjectService;
@@ -35,6 +36,20 @@ class ApiHandler {
       );
       const projects = await this.projectService.getProjectById(id);
       res.success(projects);
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  createProjectHandler = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const payload = badRequestValidator(req.body, projectSchema);
+      const project = await this.projectService.createProject(payload);
+      res.success({ project: project }, "Susccess create projects");
     } catch (error) {
       next(error);
     }

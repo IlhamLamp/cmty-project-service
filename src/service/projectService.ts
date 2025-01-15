@@ -2,7 +2,7 @@ import { Project } from "../models/project";
 import { ProjectCollection } from "../repository";
 
 export class ProjectService {
-  private projectRepository: ProjectCollection;
+  private readonly projectRepository: ProjectCollection;
 
   constructor() {
     this.projectRepository = new ProjectCollection();
