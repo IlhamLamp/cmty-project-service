@@ -9,7 +9,6 @@ async function healthCheck() {
   try {
     await db.query("SELECT 1");
     logger.info("Database connected");
-    await db.end();
   } catch (error) {
     logger.error("Database health check failed:", error);
     process.exit(1);

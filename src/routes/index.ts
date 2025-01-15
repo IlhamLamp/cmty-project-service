@@ -3,7 +3,7 @@ import { projectRouter } from "./projectRoutes";
 import { errorHandler } from "../error/handler";
 
 const router = Router();
-router.use("api/v1/project", projectRouter);
+router.use("/api/v1/project", projectRouter);
 
 router.use(errorHandler);
 

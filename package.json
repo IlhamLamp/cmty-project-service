@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsup --watch",
+    "dev": "tsup --watch && nodemon --watch ./dist --exec node ./dist",
     "build": "tsup && npm start",
     "start": "node ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,6 +28,7 @@
     "ts-node": "^10.9.2",
     "tslog": "^4.9.3",
     "typescript": "^5.7.2",
+    "uuid": "^11.0.5",
     "zod": "^3.24.1"
   },
   "devDependencies": {
