@@ -6,14 +6,14 @@ export function middlewareResponseInit() {
   return function (req: Request, res: Response, next: NextFunction) {
     const shouldDebug = ["development", undefined].includes(config.NODE_ENV);
     res.success = function (
-      data: unknown,
+      content: unknown,
       dev: unknown,
       code = 200,
       message = "Success"
     ) {
       return res.status(code ?? 200).json({
         message,
-        content: data,
+        content,
         debug: shouldDebug
           ? {
               requestId: tracer.id(),

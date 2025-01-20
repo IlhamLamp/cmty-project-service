@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsup --watch && nodemon --watch ./dist --exec node ./dist",
+    "dev": "concurrently \"tsup --watch\" \"nodemon ./dist/index.js\"",
     "build": "tsup && npm start",
     "start": "node ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -35,6 +35,7 @@
     "@types/cors": "^2.8.17",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/morgan": "^1.9.9",
+    "concurrently": "^9.1.2",
     "tsup": "^8.3.5"
   }
 }
